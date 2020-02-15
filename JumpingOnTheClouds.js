@@ -15,13 +15,16 @@ function jumpingOnClouds(c) {
       } else if(c[nextOne] !== THUNDERHEAD && nextOne < c.length) {
           i = nextOne
           jumpCount += 1
-      } else {
+      } else if(nextOne >= c.length) {
         i += 1
+      } else {
+        console.log('This game is impossible.')
+        break
       }
   }
   return jumpCount
 }
 
-const inp = "0 0 0 0 1 0".split(" ").map(value => parseInt(value))
+const inp = "0 0 1 0 1 0".split(" ").map(value => parseInt(value))
 
 console.log(jumpingOnClouds(inp))
